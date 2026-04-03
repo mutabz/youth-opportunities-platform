@@ -1,0 +1,119 @@
+.result-item:hover {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.08);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.result-item h4 {
+    color: #111;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.result-item p {
+    color: #666;
+    font-size: 0.75rem;
+}
+
+.opportunity-mega-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 30px;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+}
+
+.menu-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-link {
+  display: block;
+  padding: 6px 0;
+  color: #555;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.menu-link:hover {
+  color: #2563eb;
+  transform: translateX(4px);
+}
+
+
+.brand-logo .logo-placeholder {
+    width: 60px;
+    height: 60px;
+    background-color: #0866ff;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 60px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.btn-act:hover {
+  padding: 0.3rem !important;
+  background: transparent;
+  scale: 1.51!important;
+  transition: 0.3s ease;
+}
+
+.sidebar a {
+  color: rgba(0, 150, 250, 1.0) !important;
+  font-weight: bold;
+}
+
+.sidebar a:hover {
+  color: rgba(255, 255, 255, 1.0) !important;
+}
+
+.stickyg-top {
+  position: sticky !important;
+  top: 2rem!important;
+}
+
+.sidebar {
+  margin-top: 0!important;
+  margin: 0!important;
+}
+
+.transparent {
+  background: transparent !important;
+  box-shadow: none!important;
+}
+
+.user-dashboard header{
+  padding:1rem 0;
+  border-bottom:1px solid #ccc;
+  margin-top: 5rem;
+}
+
+.user-dashboard {
+  padding-bottom: 3rem;
+}

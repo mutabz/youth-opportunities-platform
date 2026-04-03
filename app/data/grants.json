@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "agriculture-grants",
+    "title": "Agriculture Grants",
+    "description": "Read more about Agriculture Grants."
+  },
+  {
+    "slug": "community-development-grants",
+    "title": "Community Development Grants",
+    "description": "Read more about Community Development Grants."
+  },
+  {
+    "slug": "education-grants",
+    "title": "Education Grants",
+    "description": "Read more about Education Grants."
+  },
+  {
+    "slug": "environmental-grants",
+    "title": "Environmental Grants",
+    "description": "Read more about Environmental Grants."
+  },
+  {
+    "slug": "innovation-grants",
+    "title": "Innovation Grants",
+    "description": "Read more about Innovation Grants."
+  },
+  {
+    "slug": "nonprofit-grants",
+    "title": "Nonprofit Grants",
+    "description": "Read more about Nonprofit Grants."
+  },
+  {
+    "slug": "research-grants",
+    "title": "Research Grants",
+    "description": "Read more about Research Grants."
+  },
+  {
+    "slug": "small-business-grants",
+    "title": "Small Business Grants",
+    "description": "Read more about Small Business Grants."
+  },
+  {
+    "slug": "startup-grants",
+    "title": "Startup Grants",
+    "description": "Read more about Startup Grants."
+  },
+  {
+    "slug": "student-grants",
+    "title": "Student Grants",
+    "description": "Read more about Student Grants."
+  },
+  {
+    "slug": "technology-grants",
+    "title": "Technology Grants",
+    "description": "Read more about Technology Grants."
+  },
+  {
+    "slug": "women-empowerment-grants",
+    "title": "Women Empowerment Grants",
+    "description": "Read more about Women Empowerment Grants."
+  },
+  {
+    "slug": "youth-grants",
+    "title": "Youth Grants",
+    "description": "Read more about Youth Grants."
+  }
+]
