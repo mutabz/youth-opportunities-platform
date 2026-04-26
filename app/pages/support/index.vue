@@ -64,8 +64,6 @@
       </div>
     </div>
 
-    <AdUnit slot-id="9670275022" />
-
   </main>
 </template>
 

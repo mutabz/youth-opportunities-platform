@@ -46,7 +46,6 @@
     </div>
   </section>
 
-  <AdUnit slot-id="9670275022" />
 
   <section class=" ">
     <!-- MAIN -->
@@ -83,14 +82,13 @@
     </div>
   </section>
 
-  <AdUnit slot-id="9670275022" />
 
 </template>
 
 <script setup>
 import { useDataStore } from '~/stores/dataStore'
 import { ref, computed, onMounted } from 'vue'
-import AdUnit from '~/components/AdUnit.vue'
+
 
 
 const searchQuery = ref('')

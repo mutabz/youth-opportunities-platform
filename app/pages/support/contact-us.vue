@@ -9,8 +9,6 @@
       <h2 class="text-primary fw-bold">Contact Us</h2>
     </div>
 
-    <AdUnit slot-id="9670275022" />
-
     <!-- Intro Card -->
     <div class="card shadow-sm mb-4">
       <div class="card-body text-center">
@@ -74,8 +72,6 @@
       </div>
     </div>
 
-    <AdUnit slot-id="9670275022" />
-
     <!-- Map Placeholder Card -->
     <div class="card shadow-sm mb-4">
       <div class="card-body">
@@ -85,8 +81,7 @@
         </div>
       </div>
     </div>
-
-    <AdUnit slot-id="9670275022" />
+    
 
   </main>
 </template>

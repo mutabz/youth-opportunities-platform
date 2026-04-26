@@ -72,8 +72,6 @@
       </div>
   </section>
 
-  <AdUnit slot-id="9670275022" />
-
 </template>
 
 <script setup>

@@ -21,10 +21,8 @@
             <div v-if="item.type" >
               <iframe class="mt-3 mb-4"  v-if="item.type.toLowerCase() === 'video' || 'tutorial'" style="width: 100%; height: 400px!important;" :src="item.file_path" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            
-            <AdUnit slot-id="4725203550" />
+          
             <div v-for="(par, index) in item.data" class="mt-3">{{ par }}</div>
-            <AdUnit slot-id="9670275022" />
         </div>
       </div>
     </div>

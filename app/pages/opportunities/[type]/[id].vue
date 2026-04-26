@@ -11,8 +11,6 @@
 
     <div class="row g-4">
 
-      <AdUnit slot-id="9670275022" />
-
       <!-- DESCRIPTION -->
       <div class="col-12">
         <div class="card shadow-sm border-primary">
@@ -45,8 +43,6 @@
         </div>
       </div>
 
-      <AdUnit slot-id="9670275022" />
-
       <!-- GENERIC LIST SECTIONS -->
       <div class="col-12" v-for="section in filteredDetailSections" :key="section?.key">
         <div v-if="section && details?.[section.key]?.length" class="card shadow-sm border-warning">
@@ -60,8 +56,6 @@
           </div>
         </div>
       </div>
-
-      <AdUnit slot-id="9670275022" />
 
       <!-- COMPLEX SECTIONS -->
       <div class="col-12" v-for="section in filteredDynamicSections" :key="section?.key">
@@ -108,8 +102,6 @@
         </div>
       </div>
 
-      <AdUnit slot-id="9670275022" />
-
       <!-- CREATE / EDIT MODAL -->
       <div v-if="showLoginEnquiry" class="modal fade show d-block" style="background: rgba(0,0,0,0.5)">
         <div class="modal-dialog modal-xl">
@@ -139,7 +131,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useDataStore } from '~/stores/dataStore'
 import { useUserStore } from '~/stores/userStore'
-import AdUnit from '~/components/AdUnit.vue'
+
 import LoginEnquiry from '~/components/LoginEnquiry.vue'
 import { detailSections, otherDynamicSections } from '~/configs/opportunitySections'
 import { generateMetaTitle, generateMetaDescription, generateStructuredData } from '~/composables/utils'

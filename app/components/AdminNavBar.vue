@@ -76,7 +76,7 @@
             </div>
         </div>     
     </div>
-
+<!--
     <div class="n-sidebar" id="sidebar">
         
         <ul class="n-adm-nav-links">
@@ -113,6 +113,7 @@
             </li>
         </ul>
     </div>
+-->
 </nav>
 </template>
 

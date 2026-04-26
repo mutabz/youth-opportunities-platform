@@ -45,7 +45,6 @@
             </div>
         </header>
 
-        <AdUnit slot-id="9670275022" />
 
         <section class="tabs">
             <div class="tab"><NuxtLink to="/opportunities/scholarships" class="unset">Scholarships</NuxtLink></div>
@@ -86,7 +85,6 @@
             </div>
         </section>
 
-        <AdUnit slot-id="9670275022" />
 
         <section class="p-2">
             <div class="opportunity-mega-menu">
@@ -112,7 +110,6 @@
             </div>
         </section>
 
-        <AdUnit slot-id="9670275022" />
 
         <section class="stats">
             <div class="stat-item">
@@ -198,7 +195,6 @@
 
         </section>
 
-        <AdUnit slot-id="9670275022" />
     </main>
 </template>
 
@@ -206,7 +202,7 @@
 <script setup>
 import { useDataStore } from '~/stores/dataStore'
 import { onMounted, computed } from 'vue'
-import AdUnit from '~/components/AdUnit.vue'
+
 
 import scholarships from '~/data/scholarships.json'
 import { useRouter } from 'vue-router'

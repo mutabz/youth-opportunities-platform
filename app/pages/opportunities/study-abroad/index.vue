@@ -3,8 +3,6 @@
 
   </section>
 
-  <AdUnit slot-id="9670275022" />
-
   <section class="">
 
     <!-- MAIN -->
@@ -64,15 +62,14 @@
           </div>
     </div>
   </section>
-
-  <AdUnit slot-id="9670275022" />
+  
   
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
-import AdUnit from '~/components/AdUnit.vue'
+
 
 const opportunities = ref([
   {

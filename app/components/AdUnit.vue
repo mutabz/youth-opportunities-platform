@@ -1,24 +1,24 @@
 <template>
   <div class="ad-container" :style="wrapperStyle">
     <ClientOnly>
-      <Adsbygoogle
-        :ad-slot="slotId"
-        :ad-format="format"
-        :ad-style="adStyle"
+      <ins
+        ref="adRef"
+        class="adsbygoogle"
+        :style="adStyle"
+        data-ad-client="ca-pub-4671012380656073"
+        :data-ad-slot="slotId"
+        :data-ad-format="format"
+        data-full-width-responsive="true"
       />
-      <!--      
-        <p class="ad-label">Advertisement</p>
-      -->
     </ClientOnly>
   </div>
 </template>
 
 <script setup>
-defineProps({
-  slotId: {
-    type: String,
-    required: true
-  },
+import { ref, onMounted, nextTick } from 'vue'
+
+const props = defineProps({
+  slotId: String,
   format: {
     type: String,
     default: 'auto'
@@ -29,21 +29,36 @@ defineProps({
   },
   wrapperStyle: {
     type: Object,
-    default: () => ({ margin: '20px 0', textAlign: 'center' })
+    default: () => ({
+      margin: '20px 0',
+      textAlign: 'center'
+    })
+  }
+})
+
+const adRef = ref(null)
+const loaded = ref(false)
+
+onMounted(async () => {
+  await nextTick()
+
+  if (!process.client) return
+  if (!window.adsbygoogle) return
+  if (!adRef.value) return
+  if (loaded.value) return
+
+  try {
+    ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+    loaded.value = true
+  } catch (e) {
+    console.warn('AdSense skipped:', e.message)
   }
 })
 </script>
 
 <style scoped>
-.ad-label {
-  font-size: 10px;
-  color: #999;
-  margin-top: 4px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
 .ad-container {
-  min-height: 50px; /* Prevents layout shift */
+  min-height: 50px;
   width: 100%;
   overflow: hidden;
 }

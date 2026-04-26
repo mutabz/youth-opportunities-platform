@@ -1,7 +1,7 @@
 <template>
     <Navbar class="" />
   <div class="row g-3 mt-5">
-  <div class="" :class="{ 'col-md-8' : device === 'desktop' }">
+  <div :class="{ 'col-md-8' : device === 'desktop' }">
     <div class="">
       <NuxtPage />
 
@@ -72,6 +72,7 @@ import { useDeviceType } from "@/composables/useDeviceType";
 
 const { device } = useDeviceType();
 const dataStore = useDataStore()
+const opportunityTypes = ref([])
 const model = 'opportunities'
 
 const route = useRoute()

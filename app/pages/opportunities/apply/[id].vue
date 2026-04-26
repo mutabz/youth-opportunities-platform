@@ -36,8 +36,6 @@
             <p class="card-text" v-if="opportunity.description"><strong>Description:</strong> </br> <div class="mt-3" v-for="p in opportunity.description">{{ p || 'No description available.' }}</div></p>
           </div>
         </div>
-
-        <AdUnit slot-id="9670275022" />
       </div>
 
       <div class="col-lg-7">
@@ -45,8 +43,6 @@
         <div class="card p-3">
           <ApplicationForm :opportunityId="opportunity.id" @saved="onApplicationSaved" />
         </div>
-
-        <AdUnit slot-id="9670275022" />
       </div>
     </div>
   </main>
@@ -55,7 +51,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import AdUnit from '~/components/AdUnit.vue'
+
 
 import { useDataStore } from '@/stores/dataStore'
 import ApplicationFormUser from '~/components/ApplicationFormUser.vue'

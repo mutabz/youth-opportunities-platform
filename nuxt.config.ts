@@ -3,11 +3,19 @@ export default defineNuxtConfig({
   ssr: true,
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'en'
+      },
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.webp' }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.webp' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap'}
+      ],
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
       ]
     }
-  } ,
+  },
+
   runtimeConfig: {
     public: {
       baseURL: process.env.NUXT_PUBLIC_BACKEND_URL
