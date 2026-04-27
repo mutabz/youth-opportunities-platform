@@ -1,39 +1,18 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
-
-  compatibilityDate: '2027-01-01',
-
-  devtools: { enabled: false },
-
+  compatibilityDate: '2026-04-27',
   app: {
     head: {
-      htmlAttrs: {
-        lang: 'en'
-      },
-
-      title: 'Youth Opportunities Platform Rwanda',
-
-      meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Find scholarships, jobs, internships, grants and youth opportunities in Rwanda.' }
-      ],
-
+      htmlAttrs: { lang: 'en' },
       link: [
-        { rel: 'icon', type: 'image/webp', href: '/favicon.webp' },
+        { rel: 'icon', href: '/favicon.webp' },
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap'
         }
       ],
-
-      script: [
-        {
-          async: true,
-          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4671012380656073',
-          crossorigin: 'anonymous'
-        }
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
       ]
     }
   },
@@ -44,6 +23,8 @@ export default defineNuxtConfig({
     }
   },
 
+  devtools: { enabled: false },
+
   css: [
     '~/assets/css/styles.css',
     '~/assets/css/main.css',
@@ -53,26 +34,18 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxt/icon',
-    'nuxt-seo'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
   ],
 
   icon: {
     collections: ['fa6-solid']
   },
 
-  site: {
-    url: 'https://youthplatform.co.rw'
-  },
-
   sitemap: {
-    sources: [
-      '/api/sitemap-urls'
-    ],
-
-    exclude: [
-      '/adm/**',
-      '/user/**'
-    ]
+    siteUrl: 'https://youthplatform.co.rw',
+    sources: ['/api/sitemap-urls'],
+    exclude: ['/adm/**', '/user/**']
   },
 
   robots: {
@@ -83,7 +56,6 @@ export default defineNuxtConfig({
         disallow: ['/adm', '/user']
       }
     ],
-
     sitemap: 'https://youthplatform.co.rw/sitemap.xml'
   }
 })

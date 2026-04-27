@@ -10,19 +10,27 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@iconify-json/fa6-solid": "^1.2.4",
-    "@nuxt/icon": "^2.2.1",
+    "nuxt": "^3.12.4",
+
     "@pinia/nuxt": "^0.11.3",
-    "axios": "^1.13.6",
-    "bootstrap": "^5.3.8",
-    "chart.js": "^4.5.1",    
-    "nuxt": "^4.3.1",
-    "nuxt-seo": "^1.6.1",
+    "pinia": "^2.2.0",
+
+    "@nuxt/icon": "^2.2.1",
+    "@iconify-json/fa6-solid": "^1.2.4",
+
+    "@nuxtjs/sitemap": "^7.6.0",
+    "@nuxtjs/robots": "^5.7.1",
+    "@nuxtjs/google-adsense": "^3.0.3",
+
+    "axios": "^1.6.8",
     "ofetch": "^1.5.1",
+
+    "bootstrap": "^5.3.8",
+    "chart.js": "^4.5.1",
+
     "vee-validate": "^4.15.1",
-    "vue": "^3.5.28",
-    "vue-router": "^4.6.4",
-    "vuedraggable": "^4.1.0",
-    "yup": "^1.7.1"
+    "yup": "^1.7.1",
+
+    "vuedraggable": "^4.1.0"
   }
 }
