@@ -58,7 +58,7 @@ export default defineNuxtConfig({
 
   icon: {
     collections: ['fa6-solid']
-  }
+  },
 
   site: {
     url: 'https://youthplatform.co.rw'
@@ -73,7 +73,7 @@ export default defineNuxtConfig({
       '/adm/**',
       '/user/**'
     ]
-  }
+  },
 
   robots: {
     rules: [
