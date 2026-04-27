@@ -1,17 +1,39 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
+
+  compatibilityDate: '2027-01-01',
+
+  devtools: { enabled: false },
+
   app: {
     head: {
       htmlAttrs: {
         lang: 'en'
       },
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.webp' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap'}
-      ],
+
+      title: 'Youth Opportunities Platform Rwanda',
+
       meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'Find scholarships, jobs, internships, grants and youth opportunities in Rwanda.' }
+      ],
+
+      link: [
+        { rel: 'icon', type: 'image/webp', href: '/favicon.webp' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap'
+        }
+      ],
+
+      script: [
+        {
+          async: true,
+          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4671012380656073',
+          crossorigin: 'anonymous'
+        }
       ]
     }
   },
@@ -22,10 +44,6 @@ export default defineNuxtConfig({
     }
   },
 
-  compatibilityDate: '2025-07-15',
-
-  devtools: { enabled: false },
-
   css: [
     '~/assets/css/styles.css',
     '~/assets/css/main.css',
@@ -35,24 +53,18 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxt/icon',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/robots',
-    '@nuxtjs/google-adsense'
+    'nuxt-seo'
   ],
 
   icon: {
     collections: ['fa6-solid']
-  },
+  }
 
-  'google-adsense': {
-    id: 'ca-pub-4671012380656073', 
-    onPageLoad: false,
-    pauseOnRouteUpdate: false 
+  site: {
+    url: 'https://youthplatform.co.rw'
   },
 
   sitemap: {
-    siteUrl: 'https://youthplatform.co.rw',
-
     sources: [
       '/api/sitemap-urls'
     ],
@@ -61,19 +73,17 @@ export default defineNuxtConfig({
       '/adm/**',
       '/user/**'
     ]
-  },
+  }
 
   robots: {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: [
-          '/adm',
-          '/user'
-        ]
+        disallow: ['/adm', '/user']
       }
     ],
+
     sitemap: 'https://youthplatform.co.rw/sitemap.xml'
   }
 })
