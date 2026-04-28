@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'vercel'
   },
-  compatibilityDate: '2026-04-28',
+  compatibilityDate: '2024-10-01',
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
