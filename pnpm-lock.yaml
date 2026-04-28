@@ -42,7 +42,7 @@ importers:
         specifier: ^4.15.1
         version: 4.15.1(vue@3.5.33)
       vue:
-        specifier: ^3.5.0
+        specifier: ^3.5.33
         version: 3.5.33
       vuedraggable:
         specifier: ^4.1.0
