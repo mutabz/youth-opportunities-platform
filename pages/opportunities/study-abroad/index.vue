@@ -3,63 +3,39 @@
 
   </section>
 
-  <section class="">
-
+  <section class=" ">
     <!-- MAIN -->
     <div class="main-content">
 
-          <div class="top-bar">
-              <div class="search-bar">
-                  <input type="text" placeholder="Search opportunities...">
-                  <button class="btn btn-filled">Search</button>
+      <div class=" p-4">
+        <!-- Loading -->
+        <div v-if="loading" class="text-blue-500">Loading...</div>
+        <!-- Error -->
+        <div v-if="error" class="text-red-500">{{ error }}</div>
+
+        <div v-if="filteredItems && filteredItems.length" class="opp-grid">
+          <div class="card shadow-lg h-100 rounded-4" v-for="opp in items" key="opp.id">
+            <div class="card-header">
+              <NuxtLink :to="'/opportunities/' + opp.category + '-data/' + opp.id" class="text-blue fw-bold">{{ opp.title }}</NuxtLink>
+            </div>
+            <div class="card-body">                        
+              <div>{{ truncate(opp.description[0] || '', 100) }}</div>
+              <div class="d-flex align-items-center justify-content-between mt-3 mb-0">
+                <div class="bg-primary badge">{{ opp.category  || 'Opportunity' }}</div>
+                <div class="text-danger"><strong class="me-3">Deadline: </strong>{{ opp.details.application.deadline }}</div>
               </div>
-
-              <select style="padding:0.8rem;border-radius:8px;border:1px solid #e2e8f0;">
-                  <option>Sort by Latest</option>
-                  <option>Deadline</option>
-                  <option>Popularity</option>
-              </select>
+            </div>
+            <div class="card-footer">
+              <span class="deadline"><Icon name="fa6-solid:location-pin"/> {{ truncate(opp.host_country, 10) }}, {{ truncate(opp.location.city, 10) }}</span>
+              <NuxtLink :to="'/opportunities/' + opp.category + '-data/' + opp.id" class="btn btn-outline-primary rounded-4" style="font-size: 0.8rem; padding: 0.4rem 1rem;">View Details</NuxtLink>
+            </div>
           </div>
+        </div>
 
-          <div class="opp-grid">
-
-              <!-- CARD -->
-              <div class="card">
-                  <div class="card-img">
-                      <span class="card-badge">Fully Funded</span>
-                  </div>
-                  <div class="card-content">
-                      <h3>Rhodes Scholarship 2026</h3>
-                      <p>Study at Oxford University with full financial support.</p>
-                      <div class="card-footer">
-                          <span class="deadline">Ends in 10 days</span>
-                          <a href="#" class="btn btn-outline" style="font-size:0.8rem;">View</a>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="card">
-                  <div class="card-img">
-                      <span class="card-badge" style="background:#10b981;">Internship</span>
-                      <img src="/assets/images/images.png"/>
-                  </div>
-                  <div class="card-content">
-                      <h3>Google STEP Internship</h3>
-                      <p>Gain real-world experience at Google as a student engineer.</p>
-                      <div class="card-footer">
-                          <span class="deadline">Rolling</span>
-                          <a href="#" class="btn btn-outline" style="font-size:0.8rem;">View</a>
-                      </div>
-                  </div>
-              </div>
-
-          </div>
-
-          <div class="pagination">
-              <button>1</button>
-              <button>2</button>
-              <button>3</button>
-          </div>
+        <!-- Empty state -->
+        <div v-else-if="!loading && !error">No opportunities found.</div>
+      </div>
+      
     </div>
   </section>
   

@@ -1,60 +1,60 @@
 <template>
-    <Navbar class="" />
+  <Navbar class="" />
   <div class="row g-3 mt-5">
-  <div :class="{ 'col-md-8' : device === 'desktop' }">
-    <div class="">
-      <NuxtPage />
+    <div :class="{ 'col-md-8' : device === 'desktop' }">
+      <div class="">
+        <NuxtPage />
 
-      <section class="newsletter mt-5">
-        <h2>Don't miss the next big thing.</h2>
-        <p style="margin-bottom: 2rem; opacity: 0.9;">Get curated weekly opportunities straight to your inbox.</p>
-        <form>
-          <div class="search-bar">
-            <input type="email" v-model="form.email" placeholder="Enter your email address">            
-            <button @click="submitSubscribe" class="btn btn-secondary px-2 py-2" style="background: var(--text-main);">Subscribe Now</button>
-          </div>            
-        </form>
-      </section>
+        <section class="newsletter mt-5">
+          <h2>Don't miss the next big thing.</h2>
+          <p style="margin-bottom: 2rem; opacity: 0.9;">Get curated weekly opportunities straight to your inbox.</p>
+          <form>
+            <div class="search-bar">
+              <input type="email" v-model="form.email" placeholder="Enter your email address">            
+              <button @click="submitSubscribe" class="btn btn-secondary px-2 py-2" style="background: var(--text-main);">Subscribe Now</button>
+            </div>            
+          </form>
+        </section>
+      </div>
     </div>
-  </div>
 
-  <section class="col-lg-4 sidebar sticky-top" v-if="device === 'desktop'">
-    <aside class="search-box">
-      <div class="search-header">
-        <h3>Search</h3>
-      </div>
+    <section class="col-lg-4 sidebar sticky-top" v-if="device === 'desktop'">
+      <aside class="search-box">
+        <div class="search-header">
+          <h3>Search</h3>
+        </div>
 
-      <!-- SEARCH & FILTER -->
-      <div class="filters mt-3 mb-3 d-flex gap-2 align-items-center">
-        <select v-model="statusFilter" class="form-select">
-          <option value="">All Status</option>
-          <option value="Open">Open</option>
-          <option value="Closed">Closed</option>
-          <option value="Upcoming">Upcoming</option>
-        </select>
-        <select v-model="typeFilter" class="form-select">
-          <option value="">All Types</option>
-          <option v-for="t in opportunityTypes" :key="t.id" :value="t.name">{{ t.name }}</option>
-        </select>
-        <button class="btn btn-secondary" @click="fetchOpportunities(true)"><span class=""></span>Refresh</button>
-      </div>
+        <!-- SEARCH & FILTER -->
+        <div class="filters mt-3 mb-3 d-flex gap-2 align-items-center">
+          <select v-model="statusFilter" class="form-select small">
+            <option value="">All Status</option>
+            <option value="Open">Open</option>
+            <option value="Closed">Closed</option>
+            <option value="Upcoming">Upcoming</option>
+          </select>
+          <select v-model="typeFilter" class="form-select">
+            <option value="">All Types</option>
+            <option v-for="t in opportunityTypes" :key="t.id" :value="t.name">{{ t.name }}</option>
+          </select>
+          <button class="btn btn-secondary" @click="fetchOpportunities(true)"><span class=""></span>Refresh</button>
+        </div>
 
-      <div class="search-input-wrapper">
-        <input v-model="searchQuery" type="text" placeholder="Search opportunities..." />
-      </div>
+        <div class="search-input-wrapper">
+          <input v-model="searchQuery" type="text" placeholder="Search opportunities..." />
+        </div>
 
-      <div class="search-results">
-        <div class="result-item" v-for="item in filteredOpportunities" :key="item.id">
-          <h4>{{ item.title }}</h4>
-          <p>{{ item.description[0] }} </p>
-          <div class=" ">
-            <NuxtLink :to="'/opportunities/' + item.category + '-data/' + item.id" class="btn btn-outline-primary rounded-4" style="font-size: 0.8rem; padding: 0.4rem 1rem;">View Details for this {{ item.category }}</NuxtLink>
+        <div class="search-results">
+          <div class="result-item" v-for="item in filteredOpportunities" :key="item.id">
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.description[0] }} </p>
+            <div class=" ">
+              <NuxtLink :to="'/opportunities/' + item.category + '-data/' + item.id" class="btn btn-outline-primary rounded-4" style="font-size: 0.8rem; padding: 0.4rem 1rem;">View Details for this {{ item.category }}</NuxtLink>
+            </div>
           </div>
         </div>
-      </div>
-    </aside>
-  </section>
-</div>
+      </aside>
+    </section>
+  </div>
 
 
   <Footerbar />
@@ -64,33 +64,31 @@
 import Navbar from '~/components/Navbar.vue'
 import Footerbar from '~/components/Footerbar.vue'
 import AdUnit from '~/components/AdUnit.vue'
+
 import { useRoute } from 'vue-router'
-
 import { useDataStore } from '~/stores/dataStore'
-import { ref, computed, onMounted } from 'vue'
-import { useDeviceType } from "@/composables/useDeviceType";
+import { ref, computed, onMounted, watch } from 'vue'
+import { useDeviceType } from "@/composables/useDeviceType"
 
-const { device } = useDeviceType();
+const { device } = useDeviceType()
 const dataStore = useDataStore()
-const opportunityTypes = ref([])
-const model = 'opportunities'
 
 const route = useRoute()
-const data = ref({
-  page_url: '',
-  referrer: ''
-})
+
+const model = 'opportunities'
+
+const data = ref({})
 const form = ref({})
 
 const searchQuery = ref('')
 const statusFilter = ref('')
 const typeFilter = ref('')
 const opportunityCategories = ref('')
-
 const items = ref([])
 
-
 const trackPage = async () => {
+  if (!process.client) return // ✅ IMPORTANT FIX
+
   try {
     data.value = {
       page_url: window.location.pathname,
@@ -108,19 +106,21 @@ const truncate = (text, length) => {
   return text.length > length ? text.slice(0, length) + '...' : text
 }
 
-const fetchOpportunities = async (force = false) => {
-  await dataStore.fetchData('opportunities', force)
+const fetchOpportunities = async () => {
+  await dataStore.fetchData('opportunities')
   await dataStore.fetchData('opp_category')
+
   items.value = dataStore.items.opportunities
   opportunityCategories.value = dataStore.items.opp_category
-
 }
 
 const filteredOpportunities = computed(() => {
   return (items.value || []).filter(o => {
+    const search = searchQuery.value.toLowerCase()
+
     const matchesSearch =
-      o.title?.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      o.opportunity_type?.toLowerCase().includes(searchQuery.value.toLowerCase())
+      o.title?.toLowerCase().includes(search) ||
+      o.opportunity_type?.toLowerCase().includes(search)
 
     const matchesStatus = statusFilter.value
       ? o.status === statusFilter.value
@@ -139,7 +139,7 @@ const submitSubscribe = async () => {
     await dataStore.createItem('subscribe', form.value)
     alert("Subscribed")
   } catch (e) {
-    console.log(`Error occured!! ${e}`)
+    console.log(`Error occurred!! ${e}`)
   }
 }
 
@@ -148,7 +148,7 @@ watch(
   () => {
     trackPage()
   },
-  { immediate: true } // also runs on first load
+  { immediate: true }
 )
 
 onMounted(fetchOpportunities)

@@ -18,6 +18,8 @@ const data = ref({
 })
 
 const trackPage = async () => {
+  if (!process.client) return // ✅ IMPORTANT FIX
+
   try {
     data.value = {
       page_url: window.location.pathname,

@@ -1,6 +1,5 @@
 <script setup>
 import { onMounted } from "vue"
-import Chart from "chart.js/auto"
 
 const props = defineProps({
   applications: {
@@ -9,7 +8,8 @@ const props = defineProps({
   }
 })
 
-onMounted(() => {
+onMounted(async () => {
+  const Chart = (await import('chart.js/auto')).default
 
   const statusCounts = {
     Pending: 5,

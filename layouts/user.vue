@@ -17,12 +17,12 @@ const { device } = useDeviceType();
 const dataStore = useDataStore()
 
 const route = useRoute()
-const data = ref({
-  page_url: '',
-  referrer: ''
-})
+
+const data = ref({})
 
 const trackPage = async () => {
+  if (!process.client) return // ✅ IMPORTANT FIX
+
   try {
     data.value = {
       page_url: window.location.pathname,
@@ -34,6 +34,7 @@ const trackPage = async () => {
     console.log("Tracking failed:", e)
   }
 }
+
 
 watch(
   () => route.fullPath,

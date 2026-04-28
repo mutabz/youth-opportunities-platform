@@ -1,6 +1,5 @@
 <script setup>
 import { onMounted, ref } from "vue"
-import Chart from "chart.js/auto"
 import { useDataStore } from '~/stores/dataStore'
 
 const dataStore = useDataStore()
@@ -181,7 +180,9 @@ const buildChart = () => {
 
 }
 
-
+onMounted(async () => {
+  const Chart = (await import('chart.js/auto')).default
+})
 onMounted(fetchResources)
 </script>
 

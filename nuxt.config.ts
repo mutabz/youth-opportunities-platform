@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   ssr: true,
-  compatibilityDate: '2026-04-27',
+  compatibilityDate: '2026-04-28',
   app: {
     head: {
       htmlAttrs: { lang: 'en' },

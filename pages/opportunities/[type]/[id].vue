@@ -165,13 +165,15 @@ const { data: fetchedOpportunity } = await useAsyncData(`opportunity-${route.par
   location.value = opp.details?.job_location || opp.details?.training_location || {}
   
   // Login enquiry
-  showLoginEnquiry.value = !!user.value ? false : true
+  if (process.client) {
+   showLoginEnquiry.value = !user.value
+  }
 
   return opp
 })
 
 onMounted(async () => {
-  if (user) {
+  if (user.value) {
     showLoginEnquiry.value = false
   }
   await dataStore.fetchData('opportunities')

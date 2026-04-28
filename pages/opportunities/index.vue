@@ -157,7 +157,7 @@ const filteredItems = computed(() => {
 
     // CATEGORY FILTER
     const matchesCategory =
-      !ActiveCategory.value || opp.category === ActiveCategory.value
+      !ActiveCategory.value.toLowerCase() || opp.category.toLowerCase() === ActiveCategory.value.toLowerCase()
 
     return matchesSearch && matchesCategory
   })

@@ -1,4 +1,5 @@
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-//import 'bootstrap/dist/css/bootstrap.min.css'
-//import 'bootstrap'
-export default defineNuxtPlugin(() => {})
+export default defineNuxtPlugin(async () => {
+  if (process.client) {
+    await import('bootstrap/dist/js/bootstrap.bundle.min.js')
+  }
+})
