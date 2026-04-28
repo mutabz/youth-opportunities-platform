@@ -1,0 +1,8 @@
+const index_vue_vue_type_style_index_0_scoped_e03b9b34_lang = ".admin-applications header[data-v-e03b9b34]{border-bottom:1px solid #ccc;padding:1rem 0}.filters input[data-v-e03b9b34],.filters select[data-v-e03b9b34]{width:auto}";
+
+const indexStyles_DH3VxUom = [
+  index_vue_vue_type_style_index_0_scoped_e03b9b34_lang
+];
+
+export { indexStyles_DH3VxUom as default };
+//# sourceMappingURL=index-styles.DH3VxUom.mjs.map

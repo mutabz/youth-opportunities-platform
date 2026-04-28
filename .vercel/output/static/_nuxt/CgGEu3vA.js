@@ -1,0 +1,1 @@
+import{a0 as s,a1 as u,a2 as r,a3 as o,a4 as c,a5 as i}from"./meTWO1lF.js";function n(t){const e=t||u();return e?.ssrContext?.head||e?.runWithContext(()=>{if(r())return o(c)})}function d(t,e={}){const a=n(e.nuxt);if(a)return s(t,{head:a,...e})}function f(t,e={}){const a=n(e.nuxt);if(a)return i(t,{head:a,...e})}export{f as a,d as u};

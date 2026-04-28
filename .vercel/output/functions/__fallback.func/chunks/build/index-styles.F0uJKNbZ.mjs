@@ -1,0 +1,8 @@
+const index_vue_vue_type_style_index_0_scoped_4e1957b6_lang = ".nav-list[data-v-4e1957b6]{list-style:none;margin:0;padding:0}.nav-list li[data-v-4e1957b6]{margin-bottom:.5rem}.nav-link[data-v-4e1957b6]{border-radius:10px;color:#111;display:block;font-weight:500;padding:.6rem 1rem;text-decoration:none;transition:.2s}.nav-link[data-v-4e1957b6]:hover{background:#f3f4f6}.router-link-active[data-v-4e1957b6]{background:#e0e7ff;color:#3b82f6;font-weight:600}";
+
+const indexStyles_F0uJKNbZ = [
+  index_vue_vue_type_style_index_0_scoped_4e1957b6_lang
+];
+
+export { indexStyles_F0uJKNbZ as default };
+//# sourceMappingURL=index-styles.F0uJKNbZ.mjs.map

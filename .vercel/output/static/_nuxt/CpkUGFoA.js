@@ -1,0 +1,1 @@
+import{e as o,ad as i,j as s}from"./meTWO1lF.js";function r(){const e=s("desktop"),n=()=>{const t=window.innerWidth;t<768?e.value="phone":t<1024?e.value="tablet":e.value="desktop"};return o(()=>{n(),window.addEventListener("resize",n)}),i(()=>{window.removeEventListener("resize",n)}),{device:e}}export{r as u};
